@@ -1,0 +1,9 @@
+form{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 20px auto 40px;
+}
+.button-row button {
+  width: 100%;
+}

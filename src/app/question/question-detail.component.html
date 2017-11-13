@@ -1,0 +1,34 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i mat-list-icon class="{{ question.icon }} icon"></i>
+    </div>
+    <mat-card-title>
+      <h2>{{ question.title }}</h2>
+    </mat-card-title>
+    <mat-card-subtitle>
+      <small>Hernán Giraldo - {{ question.createdAt | amLocale: 'es' | amTimeAgo }}</small>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>{{ question.description }}</p>
+  </mat-card-content>
+</mat-card>
+
+<div class="answers">
+  <h3>Respuestas</h3>
+  <mat-list class="custom-list" *ngIf="question.answers.length > 0">
+    <mat-list-item *ngFor="let answer of question.answers">
+      <h3 matLine> {{ answer.user.firstName }} {{ answer.user.lastName }} <small>{{ answer.createdAt }}</small> </h3>
+      <p class="description" matLine>
+        {{ answer.description }}
+      </p>
+    </mat-list-item>
+  </mat-list>
+
+  <p class="empty-answers" *ngIf="question.answers.length === 0">
+    Aún no hay respuestas para ésta pregunta.
+  </p>
+</div>
+
+<app-answer-form [question]="question" [test]="'test'" class="answer-form"></app-answer-form>
