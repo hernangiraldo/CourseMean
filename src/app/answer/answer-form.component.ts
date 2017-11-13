@@ -10,7 +10,6 @@ import { Question } from '../question/question.model';
 })
 export class AnswerFormComponent {
   @Input() question: Question;
-  @Input() test: string;
 
   onSubmit ( form: NgForm ) {
     const ANSWER = new Answer(
